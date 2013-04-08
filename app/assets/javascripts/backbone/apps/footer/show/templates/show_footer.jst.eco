@@ -1,2 +1,5 @@
 <div id="footer">
+  <div class="container">
+    <p class="text-info"> Funland with Marionette. Qiyuan.</p>
+  </div>
 </div>
