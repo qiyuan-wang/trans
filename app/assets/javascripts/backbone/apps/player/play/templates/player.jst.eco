@@ -1,0 +1,14 @@
+<div class="container">
+  <div id="player-frame">
+    <div id="cover">
+      <image src="/assets/cover.jpg"></image>
+    </div>
+    <div id="info">
+      <h4>What You Wanted</h3>
+      <span>OneRepublic - <cite>Native</cite></span>
+    </div>
+    <div id="panel">
+      <a href="#"><canvas id="play" class="button" width="32" height="32"></canvas></a>
+    </div>
+  </div>
+</div>
