@@ -8,7 +8,8 @@
       @aud = playerView.getAud()
       @aud.setAttribute "src", "/assets/therobots.mp3"
       @aud.setAttribute "loop", true
-      @aud.load()
+      # @aud.load()
+      console.log @aud
 
       playerView.on "play", =>
         @aud.play()
