@@ -3,8 +3,18 @@
   Player.Controller =
     showPlayer: ->
       playerView = @getPlayerView()
-      
       App.mainRegion.show playerView
+      
+      @aud = playerView.getAud()
+      @aud.setAttribute "src", "/assets/therobots.mp3"
+      @aud.setAttribute "loop", true
+      @aud.load()
+
+      playerView.on "play", =>
+        @aud.play()
+        
+      playerView.on "pause", =>
+        @aud.pause()
     
     getPlayerView: ->
       new Player.Layout

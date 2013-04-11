@@ -4,11 +4,14 @@
       <image src="/assets/cover.jpg"></image>
     </div>
     <div id="info">
-      <h4>What You Wanted</h3>
-      <span>OneRepublic - <cite>Native</cite></span>
+      <h4>Robots</h3>
+      <span>Kraftwerk - <cite>Mix</cite></span>
     </div>
     <div id="panel">
-      <a href="#"><canvas id="play" class="button" width="32" height="32"></canvas></a>
+      
+      <audio id="aud">Use a modern browser, OK?</audio>
+      <a href="#" id="play"><canvas class="button" width="30" height="30"></canvas></a>
+      <a href="#" id="pause"><canvas class="button" width="30" height="30"></canvas></a>
     </div>
   </div>
 </div>
