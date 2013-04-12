@@ -5,7 +5,7 @@
     </div>
     <div id="info">
       <h4>Robots</h3>
-      <span>Kraftwerk - <cite>Mix</cite></span>
+      <span>Kraftwerk - <cite>The Mix</cite></span>
     </div>
     <div id="panel">
       <audio id="aud">Use a modern browser, OK?</audio>
