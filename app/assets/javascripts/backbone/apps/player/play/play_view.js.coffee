@@ -7,14 +7,14 @@
       playButton: "#play > canvas"
       pauseButton: "#pause > canvas"
       aud: "#aud"
-      play_progress: "#play-progress"
-      load_progress: "#load-progress"
+      playProgress: "#play-progress"
+      loadProgress: "#load-progress"
       tips: "#tips"
     }
       
     triggers:
       "click #play"  : "play"
-      "click #pause" : "pause"
+
     
     onRender: ->
       canvas = @getCanvas()
@@ -35,9 +35,6 @@
       context.lineTo(11, 24)
       context.lineTo(11, 6)
       context.stroke()
-      
-      
-      
       
     drawPauseButton: (canvas) ->
       context = canvas.getContext('2d')
@@ -61,4 +58,12 @@
     
     getAud: ->
       @ui.aud.get(0)
-        
+    
+    LoadBar: ->
+      @ui.loadProgress
+      
+    PlayProgress: ->
+      @ui.playProgress
+    
+    Tips: ->
+      @ui.tips
