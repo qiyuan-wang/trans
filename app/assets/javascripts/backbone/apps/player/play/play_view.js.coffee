@@ -7,6 +7,9 @@
       playButton: "#play > canvas"
       pauseButton: "#pause > canvas"
       aud: "#aud"
+      play_progress: "#play-progress"
+      load_progress: "#load-progress"
+      tips: "#tips"
     }
       
     triggers:
@@ -14,36 +17,47 @@
       "click #pause" : "pause"
     
     onRender: ->
-      canvas = @ui.playButton.get(0)
+      canvas = @getCanvas()
+      @drawPlayButton canvas
+      
+    drawPlayButton: (canvas) ->
       context = canvas.getContext('2d')
-      context.beginPath()
-      context.moveTo(6, 18)
-      context.lineTo(6, 6)
-      context.lineTo(18, 15)
-      context.lineTo(6, 24)
-      context.lineTo(6, 6)
+      context.clearRect(0, 0, canvas.width, canvas.height)
       context.lineWidth = 2
       context.strokeStyle = '#B61710'
       context.lineJoin = 'round'
       context.shadowColor = '#999'
       context.shadowBlur = 0
+      context.beginPath()
+      context.moveTo(11, 8)
+      context.lineTo(11, 6)
+      context.lineTo(23, 15)
+      context.lineTo(11, 24)
+      context.lineTo(11, 6)
       context.stroke()
       
-      canvas = @ui.pauseButton.get(0)
+      
+      
+      
+    drawPauseButton: (canvas) ->
       context = canvas.getContext('2d')
+      context.clearRect(0, 0, canvas.width, canvas.height)
       context.strokeStyle = '#B61710'
       context.lineJoin = 'round'
       context.shadowColor = '#999'
       context.shadowBlur = 0
       context.lineWidth = 2
       context.beginPath()
-      context.moveTo(11, 6)
-      context.lineTo(11, 24)
+      context.moveTo(11, 7)
+      context.lineTo(11, 23)
       context.stroke()
       context.beginPath()
-      context.moveTo(19, 6)
-      context.lineTo(19, 24)
+      context.moveTo(17, 7)
+      context.lineTo(17, 23)
       context.stroke()
+    
+    getCanvas: ->
+      @ui.playButton.get(0)
     
     getAud: ->
       @ui.aud.get(0)

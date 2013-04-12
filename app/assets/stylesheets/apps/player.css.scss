@@ -1,5 +1,6 @@
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
+@import "compass/css3/transition";
 
 #player-frame {
   height     : 248px;
@@ -29,15 +30,42 @@
 }
 
 #info {
-  margin-top: 24px;
+  margin-top: 20px;
   padding: 20px;
 //  margin-left: 40px;
 }
 
 #panel {
-  padding-left: 20px;
-  audio {
+  padding-left: 10px;
+  
+  audio#aud {
     width: 200px;
     height: 20px;
+  }
+  a#play {
+    position: relative;
+    float: left;
+  }
+  div#load-progress {
+    float: left;
+    width: 170px;
+    height: 2px;
+    background-color: #C5AAA8;
+    margin-top: 14px;
+    margin-left: 2px;
+  }
+  div#play-progress {
+    width: 0px;
+    height: 2px;
+    background-color: red;
+  }
+}
+
+#tips {
+  display: none;
+  margin-left: 9px;
+  span {
+    display: inline-block;
+    font-size: 11px;
   }
 }
