@@ -14,11 +14,11 @@
       
     triggers:
       "click #play"  : "play"
-
     
     onRender: ->
       canvas = @getCanvas()
       @drawPlayButton canvas
+      @bindKeyboardEvent()
       
     drawPlayButton: (canvas) ->
       context = canvas.getContext('2d')
@@ -53,6 +53,12 @@
       context.lineTo(17, 23)
       context.stroke()
     
+    bindKeyboardEvent: ->
+      $(document).keypress (evt) =>
+        if evt.keyCode == 32
+          @$("#play").trigger("click")
+      
+      
     getCanvas: ->
       @ui.playButton.get(0)
     

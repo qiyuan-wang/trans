@@ -27,6 +27,8 @@
       
       @aud.addEventListener "pause", =>
         @playerView.drawPlayButton @canvas
+      
   
     getPlayerView: ->
       new Player.Layout
+      
