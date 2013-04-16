@@ -19,6 +19,11 @@
       canvas = @getCanvas()
       @drawPlayButton canvas
       @bindKeyboardEvent()
+    
+    onClose: ->
+      console.log "it unbinded"
+      # unbind keypress event from document
+      $(document).unbind("keypress")
       
     drawPlayButton: (canvas) ->
       context = canvas.getContext('2d')
@@ -54,6 +59,8 @@
       context.stroke()
     
     bindKeyboardEvent: ->
+      # bind the keypress event to document
+      # and it would be unbinded when this view closes by adding onClose method
       $(document).keypress (evt) =>
         if evt.keyCode == 32
           @$("#play").trigger("click")
