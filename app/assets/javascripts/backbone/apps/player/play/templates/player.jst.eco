@@ -1,8 +1,8 @@
 <div class="container">
+  <div id="background">
+    <canvas width="1000" height="1000"></canvas>
+  </div>
   <div id="player-frame">
-    <div id="cover">
-      <image src="/assets/cover.jpg"></image>
-    </div>
     <div id="info">
       <h4>Robots</h3>
       <span>Kraftwerk - <cite>The Mix</cite></span>

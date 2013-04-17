@@ -1,5 +1,5 @@
 @Trans.module "MainApp.Player", (Player, App, Backbone, Marionette, $, _) ->
-
+  
   class Player.Layout extends Marionette.ItemView
     template: "player/play/templates/player"
     
@@ -23,8 +23,8 @@
     onClose: ->
       console.log "it unbinded"
       # unbind keypress event from document
-      $(document).unbind("keypress")
-      
+      $(document).unbind("keypress")   
+    
     drawPlayButton: (canvas) ->
       context = canvas.getContext('2d')
       context.clearRect(0, 0, canvas.width, canvas.height)
@@ -63,9 +63,10 @@
       # and it would be unbinded when this view closes by adding onClose method
       $(document).keypress (evt) =>
         if evt.keyCode == 32
+          evt.preventDefault() #prevent page rolling down
           @$("#play").trigger("click")
-      
-      
+
+    
     getCanvas: ->
       @ui.playButton.get(0)
     
