@@ -1,17 +1,19 @@
-@Trans.module "PlayerApp.Play", (Play, App, Backbone, Marionette, $, _) ->
+@Trans.module "MainApp.Player", (Player, App, Backbone, Marionette, $, _) ->
   
-  Play.Controller =
+  class Player.Controller extends Marionette.Controller
+    initialize: (options) ->
+      @region = options.region
     
     showPlayer: ->
       @playerView = @getPlayerView()
-      App.playerRegion.show @playerView
+      @region.show @playerView
       @canvas = @playerView.getCanvas()
       @aud = @playerView.getAud()
       @aud.setAttribute "src", "/assets/therobots.mp3"
       @aud.setAttribute "loop", true
       
-      App.reqres.setHandler "play", =>
-        @playMusic()
+      @playerView.on "play", ->
+        App.request "play:music"
       
       @aud.addEventListener "timeupdate", =>
         width = parseInt(@playerView.LoadBar().css('width'))
@@ -33,5 +35,5 @@
         @aud.pause()
       
     getPlayerView: ->
-      new Play.View
+      new Player.View
       

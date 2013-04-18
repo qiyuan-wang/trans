@@ -1,16 +1,16 @@
-@Trans.module "PlayerApp.Play", (Play, App, Backbone, Marionette, $, _) ->
+@Trans.module "MainApp.Player", (Player, App, Backbone, Marionette, $, _) ->
   
-  class Play.View extends Marionette.ItemView
-    template: "player/play/templates/player_play"
+  class Player.View extends Marionette.ItemView
+    template: "main/player/templates/player"
     
-    ui:{
+    ui:
       playButton: "#play > canvas"
       pauseButton: "#pause > canvas"
       aud: "#aud"
       playProgress: "#play-progress"
       loadProgress: "#load-progress"
       tips: "#tips"
-    }
+    
       
     triggers:
       "click #play"  : "play"
@@ -23,10 +23,7 @@
     onClose: ->
       console.log "it unbinded"
       # unbind keypress event from document
-      $(document).unbind("keypress")   
-    
-    onPlay: ->
-      App.request("foo", "baz")
+      $(document).unbind("keypress")
     
     
     drawPlayButton: (canvas) ->

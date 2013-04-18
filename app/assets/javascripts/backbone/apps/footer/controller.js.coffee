@@ -3,7 +3,6 @@
   class FooterApp.Controller extends Marionette.Controller
     initialize: (options) ->
       @region = options.region
-      console.log @region
     
     showFooter: ->
       view = @getFooterView()

@@ -3,13 +3,11 @@
   App = new Marionette.Application
   
   App.addRegions
-    animatorRegion: "#animate-region"
-    playerRegion: "#player-region"
+    mainRegion: "#main-region"
     footerRegion: "#footer-region"
   
   App.addInitializer ->
-    App.module("PlayerApp").start()
-    App.module("AnimatorApp").start()
+    App.module("MainApp").start()
     App.module("FooterApp").start()
   
   App.on "initialize:after", ->
