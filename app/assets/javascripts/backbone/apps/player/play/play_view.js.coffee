@@ -1,7 +1,7 @@
-@Trans.module "MainApp.Player", (Player, App, Backbone, Marionette, $, _) ->
+@Trans.module "PlayerApp.Play", (Play, App, Backbone, Marionette, $, _) ->
   
-  class Player.Layout extends Marionette.ItemView
-    template: "player/play/templates/player"
+  class Play.View extends Marionette.ItemView
+    template: "player/play/templates/player_play"
     
     ui:{
       playButton: "#play > canvas"
@@ -24,6 +24,10 @@
       console.log "it unbinded"
       # unbind keypress event from document
       $(document).unbind("keypress")   
+    
+    onPlay: ->
+      App.request("foo", "baz")
+    
     
     drawPlayButton: (canvas) ->
       context = canvas.getContext('2d')

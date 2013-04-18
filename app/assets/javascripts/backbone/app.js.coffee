@@ -3,12 +3,14 @@
   App = new Marionette.Application
   
   App.addRegions
-    mainRegion: "#main-region"
+    animatorRegion: "#animate-region"
+    playerRegion: "#player-region"
     footerRegion: "#footer-region"
   
   App.addInitializer ->
+    App.module("PlayerApp").start()
+    App.module("AnimatorApp").start()
     App.module("FooterApp").start()
-    App.module("MainApp").start()
   
   App.on "initialize:after", ->
     if Backbone.history

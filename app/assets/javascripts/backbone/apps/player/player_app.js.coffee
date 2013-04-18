@@ -1,10 +1,15 @@
-@Trans.module "MainApp", (MainApp, App, Backbone, Marionette, $, _) ->
+@Trans.module "PlayerApp", (PlayerApp, App, Backbone, Marionette, $, _) ->
   @startWithParent = false
   
   API =
     showPlayer: ->
-      MainApp.Player.Controller.showPlayer()
+      PlayerApp.Play.Controller.showPlayer()
+  
+  # for test
+  PlayerApp.Console =
+    playMusic: ->
+      PlayerApp.Play.Controller.playMusic()
       
-  MainApp.on "start", ->
+  PlayerApp.on "start", ->
     API.showPlayer()
       
