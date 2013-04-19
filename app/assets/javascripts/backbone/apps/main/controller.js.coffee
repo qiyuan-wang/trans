@@ -8,7 +8,7 @@
       
       @layout.on "show", =>
         playerController = @getPlayerController()
-        playerController.showPlayer()
+        playerController.showPlayer App.audioResource
         
         App.reqres.setHandler "play:music", ->
           playerController.playMusic()
@@ -23,4 +23,3 @@
     getPlayerController: ->
       new MainApp.Player.Controller
                             region: @layout.playerRegion
-                  

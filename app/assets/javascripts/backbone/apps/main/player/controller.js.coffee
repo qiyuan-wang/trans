@@ -4,13 +4,15 @@
     initialize: (options) ->
       @region = options.region
     
-    showPlayer: ->
+    showPlayer: (audio) ->
       @playerView = @getPlayerView()
       @region.show @playerView
+      
+      # get audio ready
       @canvas = @playerView.getCanvas()
       @aud = @playerView.getAud()
-      @aud.setAttribute "src", "/assets/therobots.mp3"
-      @aud.setAttribute "loop", true
+      @aud.setAttribute "src", audio.src
+      @aud.setAttribute "loop", audio.loop
       
       @playerView.on "play", ->
         App.request "play:music"
@@ -36,4 +38,5 @@
       
     getPlayerView: ->
       new Player.View
+
       

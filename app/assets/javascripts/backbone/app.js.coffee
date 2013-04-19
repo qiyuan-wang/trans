@@ -14,4 +14,9 @@
     if Backbone.history
       Backbone.history.start()
   
+  App.audioResource = {
+    src: "/assets/therobots.mp3",
+    loop: true
+    }
+    
   App
