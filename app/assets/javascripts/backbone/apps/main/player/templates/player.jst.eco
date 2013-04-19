@@ -1,23 +1,21 @@
-<div class="container">
-  <div id="player-frame">
-    <div id="cover">
-      <image src="/assets/cover.jpg"></image>
-    </div>
-    <div id="info">
-      <h4>Robots</h3>
-      <span>Kraftwerk - <cite>The Mix</cite></span>
-    </div>
-    <div id="panel">
-      <audio id="aud">Use a modern browser, OK?</audio>
-      <a href="#" id="play"><canvas class="button" width="30" height="30"></canvas></a>
-      <div id="load-progress">
-        <div id="play-progress">
-        </div>
+<div id="player-frame">
+  <div id="cover">
+    <image src="/assets/cover.jpg"></image>
+  </div>
+  <div id="info">
+    <h4>Robots</h3>
+    <span>Kraftwerk - <cite>The Mix</cite></span>
+  </div>
+  <div id="panel">
+    <audio id="aud">Use a modern browser, OK?</audio>
+    <a href="#" id="play"><canvas class="button" width="30" height="30"></canvas></a>
+    <div id="load-progress">
+      <div id="play-progress">
       </div>
-      <div id="tips">
-        <span class="muted">Don't worry, it would loop to infinity.</span>
-        <span class="muted">So, just dance.</span>
-      </div>
+    </div>
+    <div id="tips">
+      <span class="muted">Don't worry, it would loop to infinity.</span>
+      <span class="muted">So, just dance.</span>
     </div>
   </div>
 </div>

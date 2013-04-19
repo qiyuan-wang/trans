@@ -1,10 +1,13 @@
-@Trans.module "AnimatorApp.Show", (Show, App, Backbone, Marionette, $, _) ->
+@Trans.module "MainApp.Animator", (Animator, App, Backbone, Marionette, $, _) ->
 
-  Show.Controller =
+  class Animator.Controller extends Marionette.Controller
+    initialize: (options) ->
+      @region = options.region
     
     showAnimator: ->
       @animatorView = @getAnimatorView()
-      App.animatorRegion.show @animatorView
+      @region.show @animatorView
+      
       
     getAnimatorView: ->
-      new Show.View
+      new Animator.View

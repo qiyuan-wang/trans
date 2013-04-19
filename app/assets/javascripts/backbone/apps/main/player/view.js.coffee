@@ -63,7 +63,7 @@
       # bind the keypress event to document
       # and it would be unbinded when this view closes by adding onClose method
       $(document).keypress (evt) =>
-        if evt.keyCode == 32
+        if evt.which == 32
           evt.preventDefault() #prevent page rolling down
           @$("#play").trigger("click")
 

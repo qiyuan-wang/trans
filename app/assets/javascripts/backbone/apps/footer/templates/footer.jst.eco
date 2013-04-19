@@ -1,5 +1,5 @@
 <div id="footer">
   <div class="container">
-    <p class="text-info"> Funland with Marionette. Qiyuan.</p>
+    <p> Funland with Backbone + Marionette. By <a href="www.weibo.com/zisasign" target="_blank">Qiyuan</a>.</p>
   </div>
 </div>

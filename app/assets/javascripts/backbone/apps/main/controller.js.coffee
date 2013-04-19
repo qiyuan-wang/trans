@@ -10,6 +10,8 @@
         playerController = @getPlayerController()
         playerController.showPlayer App.audioResource
         
+        animatorController = @getAnimatorController()
+        animatorController.showAnimator()
         App.reqres.setHandler "play:music", ->
           playerController.playMusic()
       
@@ -23,3 +25,7 @@
     getPlayerController: ->
       new MainApp.Player.Controller
                             region: @layout.playerRegion
+    
+    getAnimatorController: ->
+      new MainApp.Animator.Controller
+                            region: @layout.animateRegion
