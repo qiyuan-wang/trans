@@ -15,7 +15,8 @@
       Backbone.history.start()
   
   App.audioResource = {
-    src: "/assets/therobots.ogg",
+    oggSrc: "/assets/therobots.ogg",
+    mpegSrc: "/assets/therobots.mp3",
     loop: true
     }
     

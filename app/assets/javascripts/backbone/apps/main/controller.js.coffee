@@ -13,6 +13,7 @@
         animatorController = @getAnimatorController()
         animatorController.showAnimator()
         App.reqres.setHandler "play:music", ->
+          
           playerController.playMusic()
       
     

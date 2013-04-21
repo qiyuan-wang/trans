@@ -3,16 +3,25 @@
   class Player.Controller extends Marionette.Controller
     initialize: (options) ->
       @region = options.region
-    
-    showPlayer: (audio) ->
       @playerView = @getPlayerView()
+      
+    showPlayer: (audio) ->
       @region.show @playerView
       
       # get audio ready
       @canvas = @playerView.getCanvas()
       @aud = @playerView.getAud()
-      @aud.setAttribute "src", audio.src
-      @aud.setAttribute "loop", audio.loop
+      
+      #choose the right source of the audio
+      source = document.createElement('source')
+      if @aud.canPlayType 'audio/mpeg'
+        source.type = 'audio/mpeg'
+        source.src = audio.mpegSrc
+      else
+        source.type = 'audio/ogg'
+        source.src = audio.oggSrc
+      
+      @aud.appendChild source
       
       @playerView.on "play", ->
         App.request "play:music"
