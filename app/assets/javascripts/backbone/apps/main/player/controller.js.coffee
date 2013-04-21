@@ -11,6 +11,7 @@
       # get audio ready
       @canvas = @playerView.getCanvas()
       @aud = @playerView.getAud()
+      @aud.loop = true
       
       #choose the right source of the audio
       source = document.createElement('source')
