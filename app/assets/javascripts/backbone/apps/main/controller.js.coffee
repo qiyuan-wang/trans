@@ -11,10 +11,11 @@
         playerController.showPlayer App.audioResource
         
         animatorController = @getAnimatorController()
-        animatorController.showAnimator()
+        animatorController.showAwaitScene()
+        
         App.reqres.setHandler "play:music", ->
-          
           playerController.playMusic()
+          animatorController.playScenario1()
       
     
     showMainApp: ->
@@ -25,8 +26,9 @@
       
     getPlayerController: ->
       new MainApp.Player.Controller
-                            region: @layout.playerRegion
+                            region: "#player-region"
     
     getAnimatorController: ->
+      # console.log @layout.animateRegion
       new MainApp.Animator.Controller
-                            region: @layout.animateRegion
+                            region: "#animate-region"

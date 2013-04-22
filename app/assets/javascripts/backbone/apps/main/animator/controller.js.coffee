@@ -1,13 +1,20 @@
 @Trans.module "MainApp.Animator", (Animator, App, Backbone, Marionette, $, _) ->
 
   class Animator.Controller extends Marionette.Controller
-    initialize: (options) ->
-      @region = options.region
+    initialize: ->
+      @region = new Animator.TransitionRegion
+                      el: "#animate-region"
     
-    showAnimator: ->
-      @animatorView = @getAnimatorView()
+    showAwaitScene: ->
+      @animatorView = @getwAwaitScene()
       @region.show @animatorView
       
+    playScenario1: ->
+      @scenario_1 = @getScenario1()
+      @region.show @scenario_1
+    
+    getwAwaitScene: ->
+      new Animator.AwaitScene
       
-    getAnimatorView: ->
-      new Animator.View
+    getScenario1: ->
+      new Animator.Scenario1

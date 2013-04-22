@@ -2,9 +2,5 @@
   
   class MainApp.Layout extends Marionette.Layout
     template: "main/templates/main"
-    
-    regions:
-      playerRegion: "#player-region"
-      animateRegion: "#animate-region"
       
     

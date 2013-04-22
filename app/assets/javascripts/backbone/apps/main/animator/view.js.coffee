@@ -1,7 +1,13 @@
 @Trans.module "MainApp.Animator", (Animator, App, Backbone, Marionette, $, _) ->
   
-  class Animator.View extends Marionette.ItemView
-    template: "main/animator/templates/animator"
+  class Animator.TransitionRegion extends Marionette.Region
+    open: (view) ->
+      @.$el.hide()
+      @.$el.html view.el
+      @.$el.slideDown('fast')
+  
+  class Animator.AwaitScene extends Marionette.ItemView
+    template: "main/animator/templates/await_scene"
     ui:
       canvas: "canvas#animator"
     
@@ -17,5 +23,10 @@
       context.fillStyle = grd
       context.fillRect(0, 0, canvas.width, canvas.height)
       
+      
     getCanvas: ->
       @ui.canvas.get(0)
+  
+  
+  class Animator.Scenario1 extends Marionette.ItemView
+    template: "main/animator/templates/scenario_1"

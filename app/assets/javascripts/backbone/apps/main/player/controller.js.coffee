@@ -2,10 +2,12 @@
   
   class Player.Controller extends Marionette.Controller
     initialize: (options) ->
-      @region = options.region
-      @playerView = @getPlayerView()
+      @region = new Marionette.Region
+                      el: options.region
+      
       
     showPlayer: (audio) ->
+      @playerView = @getPlayerView()
       @region.show @playerView
       
       # get audio ready
@@ -25,7 +27,10 @@
       @aud.appendChild source
       
       @playerView.on "play", ->
-        App.request "play:music"
+        if App.state == "ready"
+          App.request "play:music"
+          
+          
       
       @aud.addEventListener "timeupdate", =>
         width = parseInt(@playerView.LoadBar().css('width'))
