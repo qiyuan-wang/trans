@@ -14,6 +14,9 @@
   border     : 1px solid rgba(155, 152, 152, 0.13);
   background : white;
   @include single-box-shadow(#181E56, 0px, 15px, 20px, -5px);
+  @include transition-property(top);
+  @include transition-duration(1s);
+//  @include transition-timing-function(ease-in);
 }
 
 #cover {

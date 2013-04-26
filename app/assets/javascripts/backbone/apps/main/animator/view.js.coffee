@@ -4,7 +4,7 @@
     open: (view) ->
       @.$el.hide()
       @.$el.html view.el
-      @.$el.slideDown('fast')
+      @.$el.show()
   
   class Animator.AwaitScene extends Marionette.ItemView
     template: "main/animator/templates/await_scene"
@@ -30,3 +30,96 @@
   
   class Animator.Scenario1 extends Marionette.ItemView
     template: "main/animator/templates/scenario_1"
+    
+    initialize: ->
+      @robots = {}
+      @draw = {}
+    
+    createCanvas: ->
+      @draw = SVG('canvas').size(500, 714)
+      robot_frame = ["robot1.svg", "robot2.svg", "robot3.svg", "robot4.svg"]
+      _.each _.range(4), (n)=>
+        @robots[n] = @draw.nested().size(110, 220).attr({x: 130 * n, y:"18%"})
+        _.each robot_frame, (frame)=>
+          @robots[n].image("assets/" + frame, 110, 220).opacity(0)
+      App.target = @robots[0]
+
+    showRobots: ->
+      _.each @robots, (robot, n) ->
+        robot.first().animate({delay: n * 1000}).opacity(1)
+    
+    resetRobots: ->
+      _.each @robots, (robot) ->
+        frames = robot.children()
+        _.first(frames).opacity(1)
+        _.each _.rest(frames), ((frame)-> frame.opacity(0))
+    
+    hideRobotsInRandom: ->
+      _.each _.shuffle([0,1,2,3]), (i, n) =>
+        console.log "it's " + i
+        @robots[i].first().animate({delay: n * 1000}).opacity(0)
+    
+    hideRobots: ->
+      _.each @robots, (robot, n) ->
+        robot.first().animate({delay: (3 - n) * 1000}).opacity(0)
+    
+    robotsDownShouldersInLineFromRight: ->
+      console.log "here"
+      _.each @robots, (robot, n) ->
+        base = robot.first()
+        second = base.next()
+        second.animate({milliseconds:1000, delay: (3 - n) * 1000}).opacity(0)
+        base.animate({milliseconds:1000, delay: (3 - n) * 1000}).opacity(1)
+        
+    
+    robotsRaiseShouldersInLineFromLeft: ->
+      @resetRobots()
+      _.each @robots, (robot, n) ->
+        base = robot.first()
+        second = base.next()
+        base.animate({milliseconds:1000, delay: n * 1000}).opacity(0)
+        second.animate({milliseconds:1000, delay: n * 1000}).opacity(1)
+      setTimeout (=> @robotsDownShouldersInLineFromRight()), 4000
+      
+    robotDropHand: (n) ->
+      base = @robots[n].first()
+      second = base.next()
+      third = second.next()
+      last = third.next()
+      if last.opacity() == 0
+        last.opacity(1)
+      last.animate({milliseconds:1000, delay: 1000}).opacity(0)
+      third.animate({milliseconds:1000, delay: 1000}).opacity(1).after ->
+        this.animate(1000).opacity(0)
+      second.animate({milliseconds:1000, delay: 2000}).opacity(1).after ->
+        this.animate(1000).opacity(0)
+      base.animate({milliseconds:1000, delay: 3000} ).opacity(1)
+      
+    
+    robotRaiseHand: (n) ->
+      base = @robots[n].first()
+      second = base.next()
+      third = second.next()
+      last = third.next()
+      if base.opacity() == 0
+        base.opacity(1)
+      base.animate({milliseconds:1000, delay: 1000}).opacity(0)
+      second.animate({milliseconds:1000, delay: 1000}).opacity(1).after ->
+        this.animate(1000).opacity(0)
+      third.animate({milliseconds:1000, delay: 2000}).opacity(1).after ->
+        this.animate(1000).opacity(0)
+      last.animate({milliseconds:1000, delay: 3000}).opacity(1).after =>
+        @robotDropHand n
+      
+
+      #   
+      # third.animate({delay: 5000}).opacity(1).after ->
+      #   this.animate().opacity(0)
+      # second.animate({delay: 6000}).opacity(1).after ->
+      #   this.animate().opacity(0)
+      # base.animate({delay: 7000}).opacity(1)
+      
+      # framePipeline = (array) ->
+      #   _.bindAll array
+      #   if _.first(array) != undefined
+      #     _.first(array).children()[0].opa

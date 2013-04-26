@@ -26,9 +26,9 @@
       
       @aud.appendChild source
       
-      @playerView.on "play", ->
-        if App.state == "ready"
-          App.request "play:music"
+      @playerView.on "play", =>
+        @playerView.ui.frame.css("top", '70%')
+        App.request "play:music"
           
           
       

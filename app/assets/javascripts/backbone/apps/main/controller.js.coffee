@@ -10,12 +10,25 @@
         playerController = @getPlayerController()
         playerController.showPlayer App.audioResource
         
+        aud = playerController.aud
         animatorController = @getAnimatorController()
         animatorController.showAwaitScene()
         
         App.reqres.setHandler "play:music", ->
           playerController.playMusic()
           animatorController.playScenario1()
+          animatorController.robotTestMove()
+          
+        aud.addEventListener "timeupdate", ->
+          console.log aud.currentTime
+          if aud.currentTime > 5.29 && aud.currentTime < 5.54
+            console.log "show" + aud.currentTime
+            # animatorController.showRobots()
+          if aud.currentTime > 16.08 && aud.currentTime < 16.37
+            console.log "hand" + aud.currentTime
+            # animatorController.robotRaiseHand 0
+                          
+          
       
     
     showMainApp: ->

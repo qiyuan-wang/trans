@@ -10,6 +10,7 @@
       playProgress: "#play-progress"
       loadProgress: "#load-progress"
       tips: "#tips"
+      frame: "#player-frame"
     
       
     triggers:
@@ -67,7 +68,8 @@
           evt.preventDefault() #prevent page rolling down
           @$("#play").trigger("click")
 
-    
+    moveDown: ->
+      @.$el
     getCanvas: ->
       @ui.playButton.get(0)
     

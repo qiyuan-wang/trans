@@ -12,6 +12,21 @@
     playScenario1: ->
       @scenario_1 = @getScenario1()
       @region.show @scenario_1
+      @scenario_1.createCanvas()
+    
+    showRobots: ->
+      @scenario_1.showRobots()
+
+    resetRobots: ->
+      @scenario_1.resetRobots()
+      @scenario_1.hideRobots()
+    
+      
+    robotRaiseHand: (n) ->
+      @scenario_1.robotRaiseHand n
+      
+    robotTestMove: ->
+      @scenario_1.robotsRaiseShouldersInLineFromLeft()
     
     getwAwaitScene: ->
       new Animator.AwaitScene
