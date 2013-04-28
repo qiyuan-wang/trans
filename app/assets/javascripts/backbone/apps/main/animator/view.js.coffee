@@ -30,9 +30,6 @@
       @screen = @draw.nested().size(500, 200).attr('y', "30%").back()
       _.each text_frame, (text, n) =>
         @screen.image("assets/" + text.asset, text.width, text.height).attr(x : n % 2 * 146 , y : Math.floor( n / 2) * 80).hide()
-      
-      
-      App.target = @robots[0]
     
     clearCanvas: ->
       _.each @robots, (robot) ->
@@ -105,8 +102,6 @@
         frame = robot.first()
         setTimeout (-> frame.opacity(1);frame.next().opacity(0)), (3 - n) * interval
         
-      
-      
     robotRaiseHandInSlowMotion: (n) ->
       @resetRobots()
       base = @robots[n].first()

@@ -1,5 +1,5 @@
 @Trans.module "MainApp.Animator", (Animator, App, Backbone, Marionette, $, _) ->
-
+  @startWithParent = false
   class Animator.Controller extends Marionette.Controller
     initialize: ->
       @region = new Animator.TransitionRegion
@@ -118,16 +118,6 @@
     cancelRepeat: ->
       if @intId != undefined
         clearInterval @intId
-    
-    robotTestMove: ->
-      # @stage.resetRobots()
-      # @stage.robotRaiseAndDropHand 1
-      
-      
-      # setTimeout (=> @stage.clearCanvas()), 3000
-      @robotsRaiseAndDownShouldersFromLeftSlow()
-      time = 0
-      @intervalId = setInterval (=> @robotsRaiseAndDownShouldersFromLeftSlow(); time++), 8000
     
     #each time 4s
     textShownInLine: (n)->

@@ -1,5 +1,5 @@
 @Trans.module "MainApp.Player", (Player, App, Backbone, Marionette, $, _) ->
-  
+  @startWithParent = false
   class Player.Controller extends Marionette.Controller
     initialize: (options) ->
       @region = new Marionette.Region

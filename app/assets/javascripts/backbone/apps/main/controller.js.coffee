@@ -17,10 +17,12 @@
         App.reqres.setHandler "play:music", ->
           
           playerController.playMusic()
-          
+        
+        must_run_1 = _.once (-> animatorController.showRobotsInSlowMotion())
+        must_run_2 = _.once (-> animatorController.textShownInLine 4)
         aud.addEventListener "timeupdate", ->
-          if aud.currentTime > 5.49 && aud.currentTime < 5.56
-            animatorController.showRobotsInSlowMotion()
+          if aud.currentTime > 5.39 && aud.currentTime < 5.56
+            must_run_1()
           if aud.currentTime > 11.931 && aud.currentTime < 12.16
             animatorController.robotRaiseAndDropHandInSlowMotion 0
           if aud.currentTime > 19.931 && aud.currentTime < 20.16
@@ -33,8 +35,8 @@
             animatorController.randomRobotRaiseAndDropHandFastRepeated 6
           if aud.currentTime > 89.931 && aud.currentTime < 90.16
             animatorController.hideRobotsInSlowMotion true, 1000
-          if aud.currentTime > 97.431 && aud.currentTime < 97.66
-            animatorController.textShownInLine 4
+          if aud.currentTime > 96.931 && aud.currentTime < 97.36
+            must_run_2()
           if aud.currentTime > 113.931 && aud.currentTime < 114.16
             animatorController.showRobots true, 500
           if aud.currentTime > 117.931 && aud.currentTime < 118.16
@@ -83,7 +85,6 @@
                             region: "#player-region"
     
     getAnimatorController: ->
-      # console.log @layout.animateRegion
       new MainApp.Animator.Controller
                             region: "#animate-region"
     
