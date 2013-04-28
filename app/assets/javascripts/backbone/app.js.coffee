@@ -19,5 +19,6 @@
     mpegSrc: "/assets/therobots.mp3",
     loop: true
     }
+  App.started = false
     
   App

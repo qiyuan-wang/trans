@@ -26,8 +26,10 @@
       
       @aud.appendChild source
       
+      App.aud = @aud
+      
       @playerView.on "play", =>
-        @playerView.ui.frame.css("top", '70%')
+        @playerView.ui.frame.css("top", '65%')
         App.request "play:music"
           
           

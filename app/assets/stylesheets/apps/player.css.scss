@@ -1,4 +1,3 @@
-@import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
 @import "compass/css3/transition";
 
@@ -13,10 +12,9 @@
   margin     : -124px 0 0 -250px;
   border     : 1px solid rgba(155, 152, 152, 0.13);
   background : white;
-  @include single-box-shadow(#181E56, 0px, 15px, 20px, -5px);
+  @include single-box-shadow(#121744, 0px, 20px, 20px, -5px);
   @include transition-property(top);
-  @include transition-duration(1s);
-//  @include transition-timing-function(ease-in);
+  @include transition-duration(3s);
 }
 
 #cover {
@@ -36,7 +34,6 @@
 #info {
   margin-top: 20px;
   padding: 20px;
-//  margin-left: 40px;
 }
 
 #panel {
