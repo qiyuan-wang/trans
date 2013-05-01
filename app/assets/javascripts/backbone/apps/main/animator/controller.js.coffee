@@ -105,7 +105,7 @@
       else
         @intId = setInterval (=> @robotRaiseAndDropHandFast()), 4000
     
-    #each time 4s
+    #each time 8
     randomRobotRaiseAndDropHandSlowRepeated: (n = 0)->
       @robotRaiseAndDropHandSlow()
       if n != 0

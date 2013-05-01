@@ -15,7 +15,7 @@
       @texts = {}
     
     onShow: ->
-      @draw = SVG('canvas').size(500, 500)
+      @draw = SVG('canvas').size(500, 350)
       robot_frame = ["robot1.svg", "robot2.svg", "robot3.svg", "robot4.svg"]
       text_frame = [
         {asset: "we.png", width: 126, height: 54},
@@ -23,11 +23,11 @@
         {asset: "therobot.png", width: 500, height: 62}
       ]
       _.each _.range(4), (n) =>
-        @robots[n] = @draw.nested().size(110, 220).attr({x: 130 * n, y:"20%"})
+        @robots[n] = @draw.nested().size(110, 220).attr({x: 130 * n, y:"28%"})
         _.each robot_frame, (frame) =>
           @robots[n].image("assets/" + frame, 110, 220).opacity(0)
       
-      @screen = @draw.nested().size(500, 200).attr('y', "30%").back()
+      @screen = @draw.nested().size(500, 200).attr('y', "40%").back()
       _.each text_frame, (text, n) =>
         @screen.image("assets/" + text.asset, text.width, text.height).attr(x : n % 2 * 146 , y : Math.floor( n / 2) * 80).hide()
     
